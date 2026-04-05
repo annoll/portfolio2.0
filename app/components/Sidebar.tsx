@@ -1,6 +1,7 @@
 import { BadgeCheck, MapPin } from "lucide-react";
 import AboutPage from "./AboutPage";
 import EducationPage from "./EducationPage";
+import ContactPage from "./ContactPage";
 
 export default function Sidebar() {
   return (
@@ -23,6 +24,7 @@ export default function Sidebar() {
 
       <AboutPage />
       <EducationPage />
+      <ContactPage />
     </div>
   );
 }
