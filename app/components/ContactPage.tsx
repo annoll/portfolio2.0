@@ -22,7 +22,7 @@ const socialLinks: socialLink[] = [
 
 export default function ContactPage() {
   return (
-    <div>
+    <div className="mt-10">
       <PageHeader title="Social Links" />
       {socialLinks.map(({ label, link, icon: Icon }) => (
         <Link

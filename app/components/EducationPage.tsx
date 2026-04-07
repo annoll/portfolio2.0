@@ -3,7 +3,7 @@ import PageHeader from "./PageHeader";
 
 export default function EducationPage() {
   return (
-    <div>
+    <div className="mt-10">
       <PageHeader title="Education" />
       <div className="flex items-center justify-between">
         <p className="text-sm font-light text-stone-800 flex items-center gap-1">

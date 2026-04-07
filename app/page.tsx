@@ -1,14 +1,15 @@
 import Sidebar from "./components/Sidebar";
+import Skill from "./components/Skill";
 
 export default function Home() {
   return (
-    <div className="flex h-screen overflow-hidden">
-      <aside className="w-140 shrink-0 top-0 sticky border">
+    <div className="flex flex-col md:flex-row min-h-screen">
+      <aside className="w-full md:w-140 md:shrink-0 md:sticky md:top-0 md:h-screen md:border-r border-black/10 md:overflow-y-auto">
         <Sidebar />
       </aside>
 
-      <main className="flex-1 overflow-y-auto">
-        <h1>Projects</h1>
+      <main className="flex-1 md:overflow-y-auto p-6 md:p-10">
+        <Skill />
       </main>
     </div>
   );

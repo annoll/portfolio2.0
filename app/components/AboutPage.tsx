@@ -2,7 +2,7 @@ import PageHeader from "./PageHeader";
 
 export default function AboutPage() {
   return (
-    <div>
+    <div className="mt-10">
       <PageHeader title="About" />
 
       <div className="max-w-lg mt-1">
