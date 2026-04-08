@@ -1,25 +1,6 @@
-import {
-  SiGit,
-  SiNextdotjs,
-  SiPrisma,
-  SiReact,
-  SiSupabase,
-  SiTailwindcss,
-  SiTypescript,
-  SiVercel,
-} from "react-icons/si";
 import PageHeader from "./PageHeader";
+import { stacks } from "../data";
 
-const stacks = [
-  { name: "Next.js", icon: SiNextdotjs },
-  { name: "TypeScript", icon: SiTypescript },
-  { name: "Tailwind CSS", icon: SiTailwindcss },
-  { name: "Prisma", icon: SiPrisma },
-  { name: "Supabase", icon: SiSupabase },
-  { name: "React", icon: SiReact },
-  { name: "Git", icon: SiGit },
-  { name: "Vercel", icon: SiVercel },
-];
 export default function Skill() {
   return (
     <div>

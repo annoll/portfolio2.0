@@ -6,7 +6,7 @@ export default function AboutPage() {
       <PageHeader title="About" />
 
       <div className="max-w-lg mt-1">
-        <p className="text-stone-500 text-sm leading-relaxed">
+        <p className="text-stone-500 dark:text-stone-400 text-sm leading-relaxed">
           I&apos;m a full stack developer who build things just to see them work
           - then keeps going until they look good too. I spend a lot of time
           builidng personal projects: ecommcerce apps, admin dashboards, mapping

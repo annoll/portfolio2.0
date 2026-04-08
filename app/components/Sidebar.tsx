@@ -1,27 +1,9 @@
 import { BadgeCheck, MapPin } from "lucide-react";
 import AboutPage from "./AboutPage";
 import EducationPage from "./EducationPage";
-import { MdDarkMode, MdEmail } from "react-icons/md";
 import Link from "next/link";
-import { IconType } from "react-icons";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
 import ThemeToggle from "./theme-toggle";
-
-interface socialLink {
-  label: string;
-  link: string;
-  icon: IconType;
-}
-
-const socialLinks: socialLink[] = [
-  { label: "Github", link: "https://github.com/annoll", icon: FaGithub },
-  {
-    label: "LinkedIn",
-    link: "https://www.linkedin.com/in/nur-manggona-b0a37b297/",
-    icon: FaLinkedin,
-  },
-  { label: "Email", link: "mailto:annolmanggona12@gmail.com", icon: MdEmail },
-];
+import { socialLinks } from "../data";
 
 export default function Sidebar() {
   return (
