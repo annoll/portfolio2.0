@@ -11,9 +11,9 @@ export default function Project() {
         {projects.map((project, index) => (
           <div
             key={project.name}
-            className="flex border border-gray-200 dark:border-stone-700 rounded-xl overflow-hidden hover:border-gray-300 dark:hover:border-stone-600 transition-colors"
+            className="flex flex-col md:flex-row border border-gray-200 dark:border-stone-700 rounded-xl overflow-hidden hover:border-gray-300 dark:hover:border-stone-600 transition-colors"
           >
-            <div className="w-56 shrink-0 relative bg-gray-50 dark:bg-stone-800 aspect-video">
+            <div className="w-full h-48 md:w-56 md:h-auto shrink-0 relative bg-gray-50 dark:bg-stone-800 aspect-video">
               <Image
                 src={project.image}
                 alt={project.name}
