@@ -39,7 +39,7 @@ export default function Certificate() {
           <Link
             key={cert.title}
             href={cert.url}
-            className="p-2 border border-stone-200 hover:bg-stone-100 rounded-md"
+            className="p-2 border border-stone-200 dark:border-stone-600 hover:bg-stone-100 dark:hover:bg-stone-900 rounded-md transition-colors duration-300"
           >
             <p className="text-sm">{cert.title}</p>
             <span className="text-xs text-stone-400">{cert.issuer}</span>

@@ -20,7 +20,8 @@ type Project = {
 const projects: Project[] = [
   {
     name: "lasora",
-    description: "Filipino bakery ecommerce app",
+    description:
+      "A full-stack Filipino bakery e-commerce app with role-based admin dashboard, order management, and real-time analytics.",
     image: "/images/elasora.png",
     links: [
       {
@@ -32,7 +33,8 @@ const projects: Project[] = [
   },
   {
     name: "Water mapping system",
-    description: "Deep-well water source mapping and management",
+    description:
+      "Capstone — interactive water source mapping with Leaflet.js, geolocation, and Haversine-based nearest-source calculation.",
     image: "/images/elasora.png",
     links: [
       {
@@ -54,8 +56,7 @@ export default function Project() {
             key={project.name}
             className="flex border border-gray-200 rounded-xl overflow-hidden hover:border-gray-300 transition-colors"
           >
-            {/* Image */}
-            <div className="w-48 shrink-0 relative bg-gray-50 aspect-video">
+            <div className="w-56 shrink-0 relative bg-gray-50 aspect-video">
               <Image
                 src={project.image}
                 alt={project.name}
@@ -65,12 +66,11 @@ export default function Project() {
               />
             </div>
 
-            {/* Content */}
             <div className="flex-1 p-4 flex flex-col gap-1.5">
               <span className="text-xs text-gray-300">
                 {String(index + 1).padStart(2, "0")}
               </span>
-              <h4 className="text-sm font-medium text-gray-900">
+              <h4 className="text-sm font-medium text-gray-900 dark:text-gray-200">
                 {project.name}
               </h4>
               <p className="text-xs text-gray-400 leading-relaxed flex-1">

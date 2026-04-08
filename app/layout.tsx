@@ -1,11 +1,7 @@
 import type { Metadata } from "next";
-import { Poppins, Space_Mono } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
-
-const spaceMono = Space_Mono({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-});
+import Providers from "./providers";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -23,8 +19,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${poppins.className} h-full antialiased`}>
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html
+      lang="en"
+      className={`${poppins.className} h-full antialiased`}
+      suppressHydrationWarning
+    >
+      <body className="min-h-full flex flex-col">
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }

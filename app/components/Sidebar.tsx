@@ -5,6 +5,7 @@ import { MdDarkMode, MdEmail } from "react-icons/md";
 import Link from "next/link";
 import { IconType } from "react-icons";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
+import ThemeToggle from "./theme-toggle";
 
 interface socialLink {
   label: string;
@@ -58,7 +59,7 @@ export default function Sidebar() {
         </div>
 
         <div>
-          <MdDarkMode />
+          <ThemeToggle />
         </div>
       </div>
 
