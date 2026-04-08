@@ -1,11 +1,10 @@
 import { BadgeCheck, MapPin } from "lucide-react";
 import AboutPage from "./AboutPage";
 import EducationPage from "./EducationPage";
-import ContactPage from "./ContactPage";
 
 export default function Sidebar() {
   return (
-    <div className="p-6 md:p-10 flex flex-col items-center md:items-start text-center md:text-left">
+    <div className="p-6 md:p-10 flex flex-col items-center md:items-start md:text-left">
       <div className="flex items-center gap-2">
         <h1 className="text-stone-800 font-bold text-lg">Annol Manggon</h1>
         <BadgeCheck className="fill-blue-500 text-white" size={16} />
@@ -22,7 +21,6 @@ export default function Sidebar() {
         </p>
       </div>
 
-      {/* These will also center on mobile since parent is items-center */}
       <AboutPage />
       <EducationPage />
     </div>

@@ -6,7 +6,7 @@ export default function EducationPage() {
     <div className="mt-10">
       <PageHeader title="Education" />
       <div className="flex items-center justify-between">
-        <p className="text-sm font-light text-stone-800 flex items-center gap-1">
+        <p className="text-xs md:text-sm font-light text-stone-800 flex items-center gap-1">
           <GraduationCap size={16} className="text-stone-400" />
           Bachelor of Science in Information Technology
         </p>

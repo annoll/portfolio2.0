@@ -1,3 +1,5 @@
+import Certificate from "./components/Certificate";
+import Project from "./components/Project";
 import Sidebar from "./components/Sidebar";
 import Skill from "./components/Skill";
 
@@ -10,6 +12,8 @@ export default function Home() {
 
       <main className="flex-1 md:overflow-y-auto p-6 md:p-10">
         <Skill />
+        <Project />
+        <Certificate />
       </main>
     </div>
   );
