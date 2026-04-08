@@ -5,7 +5,9 @@ interface PageHeaderProp {
 export default function PageHeader({ title }: PageHeaderProp) {
   return (
     <div>
-      <h2 className="font-bold text-md text-stone-800">{title}</h2>
+      <h2 className="font-bold text-xs uppercase tracking-widest text-stone-400">
+        {title}
+      </h2>
     </div>
   );
 }

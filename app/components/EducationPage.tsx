@@ -5,16 +5,18 @@ export default function EducationPage() {
   return (
     <div className="mt-10">
       <PageHeader title="Education" />
-      <div className="flex items-center justify-between">
-        <p className="text-xs md:text-sm font-light text-stone-800 flex items-center gap-1">
-          <GraduationCap size={16} className="text-stone-400" />
-          Bachelor of Science in Information Technology
-        </p>
-        <span className="text-stone-400 text-xs italic">May 2025</span>
+      <div className="flex items-start gap-3 mt-3 border border-stone-200 rounded-xl p-4">
+        <div className="w-8 h-8 rounded-lg bg-stone-100 flex items-center justify-center shrink-0">
+          <GraduationCap size={16} className="text-stone-500" />
+        </div>
+        <div className="text-sm font-medium text-stone-800">
+          <p>Bachelor of Science in Information Technology</p>
+          <p className="text-stone-500 text-xs mt-0.5">
+            Western Mindanao State University, Zamoanga City
+          </p>
+          <span className="text-stone-400 text-xs italic mt-1">May 2025</span>
+        </div>
       </div>
-      <p className="text-stone-600 text-xs font-light italic">
-        Western Mindanao State University, Zamoanga City
-      </p>
     </div>
   );
 }

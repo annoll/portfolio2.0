@@ -48,34 +48,14 @@ export default function Project() {
   return (
     <div className="mt-10">
       <PageHeader title="Recent Projects" />
-      <div className="flex flex-col gap-6 mt-2">
-        {projects.map((project) => (
+      <div className="flex flex-col gap-3 mt-3">
+        {projects.map((project, index) => (
           <div
             key={project.name}
-            className="flex flex-col-reverse md:flex-row border border-gray-200 rounded-xl hover:border-gray-300 transition-colors"
+            className="flex border border-gray-200 rounded-xl overflow-hidden hover:border-gray-300 transition-colors"
           >
-            <div className="flex-1 p-5 flex flex-col">
-              <h4 className="text-lg text-blue-700 font-bold tracking-wide">
-                {project.name}
-              </h4>
-              <p className="text-sm text-gray-400 leading-relaxed">
-                {project.description}
-              </p>
-              <div className="flex flex-wrap gap-4 mt-auto pt-4">
-                {project.links.map(({ label, url, icon: Icon }) => (
-                  <Link
-                    key={label}
-                    href={url}
-                    className="flex items-center gap-1 text-xs text-gray-400 hover:text-gray-700"
-                  >
-                    <Icon size={14} />
-                    {label}
-                  </Link>
-                ))}
-              </div>
-            </div>
-
-            <div className="w-full h-48 md:w-64 md:h-auto relative shrink-0">
+            {/* Image */}
+            <div className="w-48 shrink-0 relative bg-gray-50 aspect-video">
               <Image
                 src={project.image}
                 alt={project.name}
@@ -83,6 +63,34 @@ export default function Project() {
                 priority
                 className="object-cover"
               />
+            </div>
+
+            {/* Content */}
+            <div className="flex-1 p-4 flex flex-col gap-1.5">
+              <span className="text-xs text-gray-300">
+                {String(index + 1).padStart(2, "0")}
+              </span>
+              <h4 className="text-sm font-medium text-gray-900">
+                {project.name}
+              </h4>
+              <p className="text-xs text-gray-400 leading-relaxed flex-1">
+                {project.description}
+              </p>
+
+              {/* Links */}
+              <div className="flex gap-3 mt-2 pt-2 border-t border-gray-100">
+                {project.links.map(({ label, url, icon: Icon }) => (
+                  <Link
+                    key={label}
+                    href={url}
+                    target="_blank"
+                    className="flex items-center gap-1 text-xs text-gray-400 hover:text-gray-700 transition-colors"
+                  >
+                    <Icon size={12} />
+                    {label}
+                  </Link>
+                ))}
+              </div>
             </div>
           </div>
         ))}
