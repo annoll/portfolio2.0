@@ -42,7 +42,7 @@ export const projects: Project[] = [
     name: "Water mapping system",
     description:
       "Capstone — interactive water source mapping with Leaflet.js, geolocation, and Haversine-based nearest-source calculation.",
-    image: "/images/elasora.png",
+    image: "/images/deep-well.png",
     links: [
       {
         label: "Github",
