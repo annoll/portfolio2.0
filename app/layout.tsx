@@ -9,9 +9,9 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Annol Manggon | Junior Software Engineer",
+  title: "Annol Manggon | Aspiring Web Developer",
   description:
-    "Portfolio of Annol Manggon, a Junior Software Engineer based in Zamboanga City, Philippines. Specialized in building full-stack applications with clean code and thoughtful design.",
+    "Portfolio of Annol Manggon, aspring web developer based in Zamboanga City, Philippines. Specialized in building full-stack applications with clean code and thoughtful design.",
 };
 
 export default function RootLayout({

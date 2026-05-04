@@ -1,4 +1,5 @@
 import Certificate from "./components/Certificate";
+import EducationPage from "./components/EducationPage";
 import Project from "./components/Project";
 import Sidebar from "./components/Sidebar";
 import Skill from "./components/Skill";
@@ -13,7 +14,17 @@ export default function Home() {
       <main className="flex-1 md:overflow-y-auto p-6 md:p-10">
         <Skill />
         <Project />
-        <Certificate />
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
+          {/* Left Side: Certificates */}
+          <div>
+            <Certificate />
+          </div>
+
+          {/* Right Side: Education */}
+          <div>
+            <EducationPage />
+          </div>
+        </div>
       </main>
     </div>
   );

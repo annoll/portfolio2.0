@@ -1,7 +1,9 @@
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { Project, socialLink } from "../types";
-import { SiNextdotjs, SiTypescript, SiTailwindcss, SiPrisma, SiSupabase, SiReact, SiGit, SiVercel } from "react-icons/si";
+import { SiNextdotjs, SiTypescript, SiTailwindcss, SiPrisma, SiSupabase, SiReact, SiGit } from "react-icons/si";
+import { FaCss3Alt } from "react-icons/fa";
+
 
 export const socialLinks: socialLink[] = [
   { label: "Github", link: "https://github.com/annoll", icon: FaGithub },
@@ -21,7 +23,7 @@ export const stacks = [
   { name: "Supabase", icon: SiSupabase },
   { name: "React", icon: SiReact },
   { name: "Git", icon: SiGit },
-  { name: "Vercel", icon: SiVercel },
+  { name: "CSS", icon: FaCss3Alt },
 ];
 
 export const projects: Project[] = [
@@ -41,7 +43,7 @@ export const projects: Project[] = [
   {
     name: "Water mapping system",
     description:
-      "Capstone — interactive water source mapping with Leaflet.js, geolocation, and Haversine-based nearest-source calculation.",
+      "An interactive infrastructure tool for monitoring water source locations. Built with Leaflet.js, this project focuses on precise geolocation and efficient data mapping to help manage essential community resources.",
     image: "/images/deep-well.png",
     links: [
       {

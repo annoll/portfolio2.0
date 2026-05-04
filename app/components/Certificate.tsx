@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import PageHeader from "./PageHeader";
-import { ExternalLink, Eye, X } from "lucide-react";
+import { ExternalLink, Eye } from "lucide-react";
 import { useState } from "react";
 
 interface Certificates {
@@ -39,15 +39,14 @@ export default function Certificate() {
   return (
     <div className="mt-10">
       <PageHeader title="Certificates" />
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+      <div className="grid grid-row-1 md:grid-row-2 gap-3">
         {certificates.map((cert) => (
           <div
             key={cert.title}
-            className="group relative flex items-center justify-between gap-4 p-3 border border-stone-200 dark:border-stone-800 bg-white dark:bg-stone-950 hover:border-stone-400 dark:hover:border-stone-600 rounded-xl transition-all duration-300"
+            className="group relative flex items-center justify-between gap-3 p-2.5 border border-stone-200 dark:border-stone-800 bg-white dark:bg-stone-950 hover:border-stone-400 dark:hover:border-stone-600 rounded-xl"
           >
-            <div className="flex items-center gap-4 overflow-hidden">
-              {/* Logo Container */}
-              <div className="relative shrink-0 h-10 w-10 overflow-hidden rounded-lg border border-stone-100 dark:border-stone-800 bg-stone-50 dark:bg-stone-900 p-1.5">
+            <div className="flex items-center gap-3 overflow-hidden flex-1">
+              <div className="relative shrink-0 h-9 w-9 overflow-hidden rounded-full border border-stone-100 dark:border-stone-800 bg-stone-50 dark:bg-stone-900 p-1.5">
                 <Image
                   src={cert.logo}
                   alt={cert.issuer}
@@ -56,32 +55,30 @@ export default function Certificate() {
                 />
               </div>
 
-              {/* Text Content */}
-              <div className="flex flex-col overflow-hidden text-left">
-                <p className="text-sm font-medium text-stone-800 dark:text-stone-100 truncate">
+              <div className="flex flex-col overflow-hidden text-left min-w-0">
+                <p className="text-[13px] font-medium text-stone-800 dark:text-stone-100 truncate leading-tight">
                   {cert.title}
                 </p>
-                <span className="text-xs text-stone-500">{cert.issuer}</span>
+                <span className="text-[11px] text-stone-500 dark:text-stone-400 leading-tight">
+                  {cert.issuer}
+                </span>
               </div>
             </div>
 
-            {/* Action Buttons (Hover State) */}
-            <div className="flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+            <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity pr-1">
               <button
                 onClick={() => setSelectedImage(cert.image)}
                 className="p-1.5 hover:bg-stone-100 dark:hover:bg-stone-800 rounded-md text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-colors"
-                title="View Image"
               >
-                <Eye size={16} />
+                <Eye size={14} />
               </button>
               <Link
                 href={cert.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-1.5 hover:bg-stone-100 dark:hover:bg-stone-800 rounded-md text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-colors"
-                title="Official Link"
               >
-                <ExternalLink size={16} />
+                <ExternalLink size={14} />
               </Link>
             </div>
           </div>

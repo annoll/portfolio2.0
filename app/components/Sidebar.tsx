@@ -2,7 +2,6 @@
 
 import { BadgeCheck, MapPin } from "lucide-react";
 import AboutPage from "./AboutPage";
-import EducationPage from "./EducationPage";
 import Link from "next/link";
 import ThemeToggle from "./theme-toggle";
 import { socialLinks } from "../data";
@@ -34,35 +33,39 @@ export default function Sidebar() {
           ref={cardRef}
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
-          className="spotlight-card w-full md:w-auto py-4 px-4 md:px-8 bg-stone-900 rounded-lg"
+          className="spotlight-card w-full md:w-auto py-5 px-6 md:px-8 bg-stone-950 rounded-xl border border-white/5 shadow-md shadow-black/60 transition-all duration-300"
         >
           {/* spotlight overlay */}
           <div className="spotlight-light" />
 
           <div className="flex items-center gap-2">
-            <h1 className="text-white font-bold text-md md:text-lg">
+            <h1 className="text-white font-semibold text-[17px] md:text-lg tracking-tight">
               Annol Manggon
             </h1>
             <BadgeCheck className="fill-blue-500 text-white" size={16} />
           </div>
-          <div className="flex items-center gap-1 mt-1">
-            <MapPin size={16} className="text-stone-200" />
-            <p className="text-stone-200 text-xs md:text-sm">
+
+          <div className="flex items-center gap-1.5 mt-1.5">
+            <MapPin size={14} className="text-stone-400" />
+            <p className="text-stone-400 text-[13px]">
               Zamboanga City, Philippines
             </p>
           </div>
-          <p className="text-stone-300 text-xs mt-0.5">
-            Junior Software Engineer
+
+          {/* In-update ang text para sa Aspiring Web Developer status */}
+          <p className="text-stone-500 text-[12px] mt-1 font-medium uppercase tracking-wider">
+            Aspiring Web Developer
           </p>
-          <div className="mt-3 pt-3 border-t border-white/10 flex flex-wrap gap-2">
+
+          <div className="mt-5 pt-4 border-t border-white/5 flex flex-wrap gap-2">
             {socialLinks.map(({ label, link, icon: Icon }) => (
               <Link
                 key={label}
                 href={link}
                 target="_blank"
-                className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-white/5 border border-white/10 text-stone-400 text-xs hover:bg-white/10 hover:text-white transition-colors"
+                className="flex items-center gap-2 px-3 py-2 rounded-lg bg-white/[0.03] border border-white/5 text-stone-400 text-[11px] hover:bg-white/[0.08] hover:text-white hover:border-white/20 transition-all duration-300"
               >
-                <Icon size={13} />
+                <Icon size={14} />
                 {label}
               </Link>
             ))}
@@ -75,7 +78,6 @@ export default function Sidebar() {
       </div>
 
       <AboutPage />
-      <EducationPage />
     </div>
   );
 }

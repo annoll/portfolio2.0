@@ -5,20 +5,32 @@ export default function EducationPage() {
   return (
     <div className="mt-10">
       <PageHeader title="Education" />
-      <div className="flex items-start gap-3 mt-3 border border-stone-200 dark:border-stone-800 rounded-xl p-4">
-        <div className="w-8 h-8 rounded-lg bg-stone-100 flex items-center justify-center shrink-0">
-          <GraduationCap size={16} className="text-stone-500" />
+      <div className="flex items-start gap-3 mt-4 border border-stone-200 dark:border-stone-800 rounded-xl p-3 bg-white dark:bg-stone-950">
+        <div className="w-9 h-9 rounded-lg bg-stone-100 dark:bg-stone-900 flex items-center justify-center shrink-0 border border-stone-200/50 dark:border-stone-800">
+          <GraduationCap
+            size={18}
+            className="text-stone-500 dark:text-stone-400"
+          />
         </div>
-        <div className="text-sm font-medium text-stone-800">
-          <p className="text-stone-800 font-medium dark:text-stone-100">
+
+        <div className="flex flex-col min-w-0">
+          <p className="text-[13px] font-medium text-stone-800 dark:text-stone-100 leading-tight wrap-break-word">
             Bachelor of Science in Information Technology
           </p>
-          <p className="text-stone-500 text-xs mt-0.5 dark:text-stone-400">
-            Western Mindanao State University, Zamoanga City
+
+          <p className="text-[11px] text-stone-500 dark:text-stone-400 mt-1 leading-snug">
+            Western Mindanao State University
           </p>
-          <span className="text-stone-400 text-xs italic mt-1 dark:text-stone-500">
-            May 2025
-          </span>
+
+          <div className="flex items-center gap-2 mt-1">
+            <span className="text-[10px] text-stone-400 dark:text-stone-600 uppercase tracking-wider font-medium">
+              Zamboanga City
+            </span>
+            <span className="text-stone-300 dark:text-stone-800">•</span>
+            <span className="text-[10px] text-stone-400 dark:text-stone-500 italic">
+              May 2025
+            </span>
+          </div>
         </div>
       </div>
     </div>
