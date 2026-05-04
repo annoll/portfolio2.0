@@ -1,20 +1,37 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 
 export default function ThemeToggle() {
   const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => setMounted(true), []);
+
+  if (!mounted) return null;
+
+  const isDark = theme === "dark";
 
   return (
     <button
-      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className="relative p-3 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 active:scale-95 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-gray-400 dark:focus-visible:ring-gray-600"
+      onClick={() => setTheme(isDark ? "light" : "dark")}
+      className="relative flex h-7 w-12 items-center rounded-full bg-gray-200 p-1 transition-colors duration-500 dark:bg-gray-700"
       aria-label="Toggle theme"
     >
-      <Sun className="h-5 w-5 text-amber-500 transition-all duration-300 dark:rotate-90 dark:scale-0" />
-
-      <Moon className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-5 w-5 text-slate-700 transition-all duration-300 rotate-90 scale-0 dark:rotate-0 dark:scale-100" />
+      <motion.div
+        animate={{ x: isDark ? 20 : 0 }}
+        transition={{ type: "spring", stiffness: 500, damping: 30 }}
+        className="flex h-5 w-5 items-center justify-center rounded-full bg-white shadow-md"
+      >
+        {isDark ? (
+          <Moon className="h-3 w-3 text-slate-700" />
+        ) : (
+          <Sun className="h-3 w-3 text-amber-500" />
+        )}
+      </motion.div>
     </button>
   );
 }
