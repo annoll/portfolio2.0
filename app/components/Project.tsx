@@ -22,7 +22,7 @@ export default function Project() {
               </div>
               <div className="flex-1 p-4 flex flex-col">
                 <div className="flex justify-between items-start mb-1.5">
-                  <h4 className="text-sm font-semibold text-stone-900 dark:text-stone-100 group-hover:text-blue-500 transition-colors">
+                  <h4 className="text-sm font-semibold text-stone-900 dark:text-stone-100 transition-colors">
                     {project.name}
                   </h4>
                   <span className="text-[10px] font-mono font-bold text-stone-400 dark:text-stone-600">

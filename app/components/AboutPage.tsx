@@ -8,7 +8,7 @@ export default function AboutPage() {
 
       <div className="max-w-lg mt-4 space-y-5">
         <FadeUp delay={0.05}>
-          <p className="text-stone-600 dark:text-stone-300 text-[15px] leading-relaxed">
+          <p className="text-stone-600 dark:text-stone-300 text-[15px] leading-relaxed mb-1">
             I&apos;m an aspiring web developer who enjoys building projects from
             scratch. I love the process of making things work behind the scenes
             and spending time on the small details until the UI looks and feels
