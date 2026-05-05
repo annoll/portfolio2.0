@@ -1,24 +1,25 @@
 "use client";
-
 import { motion } from "framer-motion";
-
-interface FadeUpProps {
-  children: React.ReactNode;
-  delay?: number;
-  className?: string;
-}
 
 export default function FadeUp({
   children,
   delay = 0,
-  className,
-}: FadeUpProps) {
+  className = "",
+}: {
+  children: React.ReactNode;
+  delay?: number;
+  className?: string;
+}) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.4, ease: "easeOut", delay }}
+      viewport={{ once: true, amount: 0.1 }}
+      transition={{
+        duration: 0.6,
+        ease: [0.22, 1, 0.36, 1],
+        delay: delay / 1000,
+      }}
       className={className}
     >
       {children}

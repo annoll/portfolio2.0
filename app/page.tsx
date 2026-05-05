@@ -1,3 +1,4 @@
+import FadeUp from "./components/animations/FadeUp";
 import Certificate from "./components/Certificate";
 import EducationPage from "./components/EducationPage";
 import Project from "./components/Project";
@@ -13,7 +14,9 @@ export default function Home() {
 
       <main className="flex-1 md:overflow-y-auto p-6 md:p-10">
         <Skill />
+
         <Project />
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
           {/* Left Side: Certificates */}
           <div>

@@ -5,6 +5,7 @@ import Link from "next/link";
 import PageHeader from "./PageHeader";
 import { ExternalLink, Eye } from "lucide-react";
 import { useState } from "react";
+import FadeUp from "./animations/FadeUp";
 
 interface Certificates {
   title: string;
@@ -41,69 +42,80 @@ export default function Certificate() {
       <PageHeader title="Certificates" />
       <div className="grid grid-row-1 md:grid-row-2 gap-3">
         {certificates.map((cert) => (
-          <div
-            key={cert.title}
-            className="group relative flex items-center justify-between gap-3 p-2.5 border border-stone-200 dark:border-stone-800 bg-white dark:bg-stone-950 hover:border-stone-400 dark:hover:border-stone-600 rounded-xl"
-          >
-            <div className="flex items-center gap-3 overflow-hidden flex-1">
-              <div className="relative shrink-0 h-9 w-9 overflow-hidden rounded-full border border-stone-100 dark:border-stone-800 bg-stone-50 dark:bg-stone-900 p-1.5">
-                <Image
-                  src={cert.logo}
-                  alt={cert.issuer}
-                  fill
-                  className="object-contain dark:brightness-0 dark:invert"
-                />
+          <FadeUp key={cert.title} delay={0.1}>
+            <div
+              key={cert.title}
+              className="group relative flex items-center justify-between gap-3 p-3 border border-stone-200 dark:border-stone-800 bg-white dark:bg-stone-950 hover:border-stone-400 dark:hover:border-stone-600 rounded-xl transition-all duration-300"
+            >
+              <div className="flex items-center gap-3 overflow-hidden flex-1">
+                {/* Logo Container */}
+                <div className="relative shrink-0 h-9 w-9 overflow-hidden rounded-full border border-stone-100 dark:border-stone-800 bg-stone-50 dark:bg-stone-900 p-1.5">
+                  <Image
+                    src={cert.logo}
+                    alt={cert.issuer}
+                    fill
+                    className="object-contain dark:brightness-0 dark:invert"
+                  />
+                </div>
+
+                {/* Text container na may min-w-0 para hindi masira ang layout */}
+                <div className="flex flex-col min-w-0 overflow-hidden text-left">
+                  <p className="text-[13px] font-medium text-stone-800 dark:text-stone-100 truncate leading-tight">
+                    {cert.title}
+                  </p>
+                  <span className="text-[11px] text-stone-500 dark:text-stone-400 leading-tight">
+                    {cert.issuer}
+                  </span>
+                </div>
               </div>
 
-              <div className="flex flex-col overflow-hidden text-left min-w-0">
-                <p className="text-[13px] font-medium text-stone-800 dark:text-stone-100 truncate leading-tight">
-                  {cert.title}
-                </p>
-                <span className="text-[11px] text-stone-500 dark:text-stone-400 leading-tight">
-                  {cert.issuer}
-                </span>
+              {/* Action Buttons - FIXED FOR MOBILE */}
+              <div className="flex items-center gap-1 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity">
+                <button
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setSelectedImage(cert.image);
+                  }}
+                  className="p-2 md:p-1.5 bg-stone-100 dark:bg-stone-900 md:bg-transparent rounded-md text-stone-500 hover:text-stone-900 dark:hover:text-stone-100 transition-colors"
+                  title="View Image"
+                >
+                  <Eye size={16} className="md:w-3.5 md:h-3.5" />
+                </button>
+                <Link
+                  href={cert.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 md:p-1.5 bg-stone-100 dark:bg-stone-900 md:bg-transparent rounded-md text-stone-500 hover:text-stone-900 dark:hover:text-stone-100 transition-colors"
+                  title="Official Link"
+                >
+                  <ExternalLink size={16} className="md:w-3.5 md:h-3.5" />
+                </Link>
               </div>
             </div>
-
-            <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity pr-1">
-              <button
-                onClick={() => setSelectedImage(cert.image)}
-                className="p-1.5 hover:bg-stone-100 dark:hover:bg-stone-800 rounded-md text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-colors"
-              >
-                <Eye size={14} />
-              </button>
-              <Link
-                href={cert.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-1.5 hover:bg-stone-100 dark:hover:bg-stone-800 rounded-md text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-colors"
-              >
-                <ExternalLink size={14} />
-              </Link>
-            </div>
-          </div>
+          </FadeUp>
         ))}
       </div>
 
       {selectedImage && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md p-4 cursor-zoom-out"
+          className="fixed inset-0 z-100 flex items-center justify-center bg-black/90 backdrop-blur-md p-6 md:p-20 cursor-zoom-out"
           onClick={() => setSelectedImage(null)}
         >
-          {/* Container na sumusunod sa size ng image */}
-          <div className="relative max-w-5xl w-full h-full flex items-center justify-center">
-            <div
-              className="relative max-h-[85vh] w-full h-full"
-              onClick={(e) => e.stopPropagation()} // Iwasan ang pag-close pag mismong image ang clinick
-            >
-              <Image
-                src={selectedImage}
-                alt="Certificate Preview"
-                fill
-                className="object-contain drop-shadow-2xl"
-                priority
-              />
-            </div>
+          {/* 
+     
+    */}
+          <div
+            className="relative cursor-default"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <Image
+              src={selectedImage}
+              alt="Certificate Preview"
+              width={1000}
+              height={700}
+              className="object-contain w-auto h-auto max-w-[90vw] max-h-[70vh] md:max-h-[80vh] drop-shadow-[0_0_50px_rgba(0,0,0,0.5)] rounded-sm"
+              priority
+            />
           </div>
         </div>
       )}
