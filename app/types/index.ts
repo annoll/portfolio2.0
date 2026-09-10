@@ -1,20 +1,38 @@
-import { IconType } from "react-icons";
-
-export interface socialLink {
-  label: string;
-  link: string;
-  icon: IconType;
-}
+export type CategoryTheme = 'emerald' | 'blue' | 'amber' | 'neutral';
 
 export interface Project {
-  name: string;
+  id: string;
+  title: string;
+  category: string;
+  categoryTheme: CategoryTheme;
   description: string;
-  image: string;
-  links: ProjectLinks[];
-};
+  tags: string[];
+  imageSrc: string;
+  githubUrl?: string;
+  liveUrl?: string;
+}
 
-type ProjectLinks = {
+export interface Certification {
+  id: string;
+  title: string;
+  issuer: string;
+  year: string;
+  credentialUrl?: string;
+}
+
+export interface TechSkill {
+  name: string;
+  iconName?: string;
+}
+
+export interface TechCategory {
+  id: string;
+  title: string;
+  skills: TechSkill[];
+}
+
+export interface SocialLinks {
   label: string;
   url: string;
-  icon: IconType;
-};
+  iconName: string;
+}

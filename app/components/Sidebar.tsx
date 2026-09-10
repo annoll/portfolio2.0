@@ -1,86 +1,99 @@
 "use client";
 
-import { BadgeCheck, MapPin } from "lucide-react";
-import AboutPage from "./AboutPage";
+import ThemeToggle from "@/app/components/theme-toggle";
+import { Icons } from "./ui/icons";
+import { siteConfig as profile, siteConfig } from "../data/siteConfig";
+import { useActiveSection } from "../hooks/useActiveSection";
 import Link from "next/link";
-import ThemeToggle from "./theme-toggle";
-import { socialLinks } from "../data";
-import { useRef, MouseEvent } from "react";
-import FadeUp from "./animations/FadeUp";
+
+const navItems = [
+  { id: "about", label: "About", number: "00" },
+  { id: "projects", label: "Projects", number: "01" },
+  { id: "certs", label: "Certifications", number: "03" },
+  { id: "stack", label: "Tech Stack", number: "04" },
+];
 
 export default function Sidebar() {
-  const cardRef = useRef<HTMLDivElement>(null);
-
-  const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
-    const card = cardRef.current;
-    if (!card) return;
-    const rect = card.getBoundingClientRect();
-    card.style.setProperty("--x", `${e.clientX - rect.left}px`);
-    card.style.setProperty("--y", `${e.clientY - rect.top}px`);
-  };
-
-  const handleMouseLeave = () => {
-    const card = cardRef.current;
-    if (!card) return;
-    card.style.setProperty("--x", `-100px`);
-    card.style.setProperty("--y", `-100px`);
-  };
-
+  const activeSection = useActiveSection([
+    "about",
+    "projects",
+    "certs",
+    "stack",
+  ]);
   return (
-    <div className="p-6 md:p-10 flex flex-col">
-      <FadeUp delay={0.1}>
-        <div className="flex flex-col-reverse md:flex-row justify-between items-end md:items-start gap-6">
-          {/* Profile Card */}
-          <div
-            ref={cardRef}
-            onMouseMove={handleMouseMove}
-            onMouseLeave={handleMouseLeave}
-            className="spotlight-card w-full md:w-auto py-5 px-6 md:px-8 bg-stone-950 rounded-xl border border-white/5 shadow-md shadow-black/60 transition-all duration-300"
-          >
-            {/* spotlight overlay */}
-            <div className="spotlight-light" />
-
-            <div className="flex items-center gap-2">
-              <h1 className="text-white font-semibold text-[17px] md:text-lg tracking-tight">
-                Annol Manggon
-              </h1>
-              <BadgeCheck className="fill-blue-500 text-white" size={16} />
-            </div>
-
-            <div className="flex items-center gap-1.5 mt-1.5">
-              <MapPin size={14} className="text-stone-400" />
-              <p className="text-stone-400 text-[13px]">
-                Zamboanga City, Philippines
-              </p>
-            </div>
-
-            {/* In-update ang text para sa Aspiring Web Developer status */}
-            <p className="text-stone-500 text-[12px] mt-1 font-medium uppercase tracking-wider">
-              Aspiring Web Developer
-            </p>
-
-            <div className="mt-5 pt-4 border-t border-white/5 flex flex-wrap gap-2">
-              {socialLinks.map(({ label, link, icon: Icon }) => (
-                <Link
-                  key={label}
-                  href={link}
-                  target="_blank"
-                  className="flex items-center gap-2 px-3 py-2 rounded-lg bg-white/[0.03] border border-white/5 text-stone-400 text-[11px] hover:bg-white/[0.08] hover:text-white hover:border-white/20 transition-all duration-300"
-                >
-                  <Icon size={14} />
-                  {label}
-                </Link>
-              ))}
-            </div>
-          </div>
-
-          <div>
-            <ThemeToggle />
-          </div>
+    <aside className="w-full lg:sticky lg:top-16 lg:h-[calc(100vh-8rem)] lg:flex lg:flex-col lg:justify-between mb-10 lg:mb-0">
+      <div className="space-y-6">
+        <div className="space-y-2">
+          <h1 className="text-2xl font-bold tracking-tight text-brand-light">
+            {profile.name}
+          </h1>
+          <p className="text-brand-muted text-sm font-mono">{profile.role}</p>
         </div>
-      </FadeUp>
 
-      <AboutPage />
-    </div>
+        <p className="text-xs text-brand-light leading-relaxed">
+          {profile.bio}
+        </p>
+
+        <nav className="space-y-2 pt-2 font-mono text-xs">
+          {navItems.map((item) => {
+            const isActive = activeSection === item.id;
+            return (
+              <Link
+                key={item.id}
+                href={`#${item.id}`}
+                className={`flex items-center gap-2 transition-all duration-200 ${
+                  isActive
+                    ? "text-brand-light font-bold translate-x-1"
+                    : "text-brand-muted hover:text-brand-light"
+                }`}
+              >
+                <span
+                  className={`transition-colors ${
+                    isActive
+                      ? "text-emerald-500 dark:text-emerald-400 font-bold"
+                      : "text-brand-muted"
+                  }`}
+                >
+                  {item.number} -
+                </span>
+                {item.label}
+              </Link>
+            );
+          })}
+        </nav>
+      </div>
+
+      <div className="pt-6 lg:pt-0 space-y-4">
+        {profile.openForWork && (
+          <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full border border-brand-border bg-brand-card text-[11px] font-mono text-emerald-600 dark:text-emerald-400 w-fit whitespace-nowrap">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse shrink-0"></span>
+            Open to Entry-Level & Freelance Roles
+          </div>
+        )}
+
+        <div className="flex items-center justify-between border-t border-brand-border pt-4">
+          <div className="flex items-center gap-3.5 text-xs font-mono text-brand-muted">
+            {siteConfig.socials.map((item) => {
+              const IconComponent =
+                Icons[item.iconName as keyof typeof Icons] || Icons.external;
+              return (
+                <a
+                  key={item.label}
+                  href={item.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:text-brand-light transition-colors"
+                  title={item.label}
+                >
+                  <IconComponent className="w-4 h-4" />
+                </a>
+              );
+            })}
+          </div>
+
+          <ThemeToggle />
+        </div>
+      </div>
+    </aside>
   );
 }

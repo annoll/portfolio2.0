@@ -1,33 +1,40 @@
-import FadeUp from "./components/animations/FadeUp";
-import Certificate from "./components/Certificate";
+import About from "./components/About";
+import FadeIn from "./components/animations/FadeIn";
+import Certificates from "./components/Certifications";
 import EducationPage from "./components/EducationPage";
-import Project from "./components/Project";
+import Projects from "./components/Projects";
 import Sidebar from "./components/Sidebar";
-import Skill from "./components/Skill";
+import TechStack from "./components/TechStack";
 
 export default function Home() {
   return (
-    <div className="flex flex-col md:flex-row min-h-screen">
-      <aside className="w-full md:w-140 md:shrink-0 md:sticky md:top-0 md:h-screen md:border-r border-black/10 md:overflow-y-auto">
+    <div className="max-w-5xl mx-auto px-6 py-10 lg:py-16 lg:flex lg:gap-16 items-start">
+      <FadeIn
+        delay={0.1}
+        className="w-full lg:w-1/3 lg:shrink-0 lg:sticky lg:top-16"
+      >
         <Sidebar />
-      </aside>
+      </FadeIn>
 
-      <main className="flex-1 md:overflow-y-auto p-6 md:p-10">
-        <Skill />
+      <main className="w-full lg:w-2/3 space-y-12 mt-10 lg:mt-0">
+        <FadeIn delay={0.2}>
+          <About />
+        </FadeIn>
 
-        <Project />
+        <FadeIn delay={0.3}>
+          <Projects />
+        </FadeIn>
+        <FadeIn delay={0.4}>
+          <Certificates />
+        </FadeIn>
+        <FadeIn delay={0.5}>
+          <TechStack />
+        </FadeIn>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-6 items-start">
-          {/* Left Side: Certificates */}
-          <div>
-            <Certificate />
-          </div>
-
-          {/* Right Side: Education */}
-          <div>
-            <EducationPage />
-          </div>
-        </div>
+        <footer className="pt-6 border-t border-brand-border flex items-center justify-between text-xs font-mono text-brand-muted">
+          <p>Built with passion and curiosity.</p>
+          <p>© 2026 Annol</p>
+        </footer>
       </main>
     </div>
   );

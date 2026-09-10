@@ -2,6 +2,43 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+@theme {
+  --color-brand-bg: var(--bg-main);
+  --color-brand-card: var(--bg-card);
+  --color-brand-border: var(--border-color);
+  --color-brand-muted: var(--text-muted);
+  --color-brand-light: var(--text-main);
+
+  --font-mono: "JetBrains Mono", Courier New, monospace;
+}
+
+:root {
+  --bg-main: #fcfcfc;
+  --bg-card: #ffffff;
+  --border-color: #e5e5e5;
+  --text-muted: #666666;
+  --text-main: #171717;
+}
+
+.dark {
+  --bg-main: #0a0a0a;
+  --bg-card: #121212;
+  --border-color: #222222;
+  --text-muted: #888888;
+  --text-main: #ededed;
+
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-brand-bg);
+  color: var(--color-brand-light);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
 .spotlight-card {
   position: relative;
   overflow: hidden;
@@ -14,11 +51,9 @@
   transform: translate(-50%, -50%);
   width: 250px;
   height: 250px;
-  background: radial-gradient(
-    circle,
-    rgba(255, 255, 255, 0.15) 0%,
-    transparent 70%
-  );
+  background: radial-gradient(circle,
+      rgba(255, 255, 255, 0.15) 0%,
+      transparent 70%);
   pointer-events: none;
   border-radius: 50%;
   transition:
