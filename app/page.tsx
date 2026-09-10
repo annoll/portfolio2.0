@@ -2,6 +2,7 @@ import About from "./components/About";
 import FadeIn from "./components/animations/FadeIn";
 import Certificates from "./components/Certifications";
 import EducationPage from "./components/EducationPage";
+import MobileNav from "./components/MobileNav";
 import Projects from "./components/Projects";
 import Sidebar from "./components/Sidebar";
 import TechStack from "./components/TechStack";
@@ -36,6 +37,7 @@ export default function Home() {
           <p>© 2026 Annol</p>
         </footer>
       </main>
+      <MobileNav />
     </div>
   );
 }

@@ -34,7 +34,7 @@ export default function Sidebar() {
           {profile.bio}
         </p>
 
-        <nav className="space-y-2 pt-2 font-mono text-xs">
+        <nav className="hidden lg:block space-y-2 pt-2 font-mono text-xs">
           {navItems.map((item) => {
             const isActive = activeSection === item.id;
             return (
